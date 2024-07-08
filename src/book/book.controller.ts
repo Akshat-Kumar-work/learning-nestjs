@@ -7,6 +7,7 @@ export class BookController {
     //here this approach is wrong as we have to create new instance each and every time so we use provider and injectable concepts
    // public bookServiceInstance:BookService = new BookService();
 
+   //nest js has provided me its object or instance because we injected it into root module as provider
    constructor(private bookService:BookService){}
 
     @Post("/add-book")
