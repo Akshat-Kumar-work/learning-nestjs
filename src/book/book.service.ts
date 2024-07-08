@@ -1,7 +1,11 @@
+import { Injectable } from "@nestjs/common"
 
+//in service file , it contain code for controllers
+
+//injectable will create single object or instance of class and provide through out the applications
+
+@Injectable()
 export class BookService{
-
-
 
     addBook():string{
         return "this will add book"

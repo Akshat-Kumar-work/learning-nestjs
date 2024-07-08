@@ -4,30 +4,33 @@ import { BookService } from './book.service';
 @Controller('book')
 export class BookController {
 
-    public bookServiceInstance:BookService = new BookService();
+    //here this approach is wrong as we have to create new instance each and every time so we use provider and injectable concepts
+   // public bookServiceInstance:BookService = new BookService();
+
+   constructor(private bookService:BookService){}
 
     @Post("/add-book")
     //function to add book
     addBook():string{
-       return this.bookServiceInstance.addBook();
+       return this.bookService.addBook();
     }
 
     @Delete("/delete-book")
     //delete book
     deleteBook():string{
-        return this.bookServiceInstance.delete();
+        return this.bookService.delete();
     }
 
     @Put("/update-book")
     //update book
     updateBook():string{
-        return this.bookServiceInstance.updateBook();
+        return this.bookService.updateBook();
     }
 
     @Get("/find-book")
     //update book
     findBook():string{
-       return this.bookServiceInstance.findBooks();
+       return this.bookService.findBooks();
     }
 
     //dynamic param route
