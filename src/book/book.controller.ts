@@ -31,7 +31,7 @@ export class BookController {
     @Get("/find-bookbyId:bookId")
     //update book
     findBookbyId(@Param()params):string{
-        console.log(params.id)
+        console.log(params.bookId)
         return `this will find a book by id ${params.bookId}`
     }
 
