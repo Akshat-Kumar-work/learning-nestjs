@@ -1,5 +1,6 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { UserGuard } from './users.guard';
 
 @Controller('users')
 export class UsersController {
@@ -7,6 +8,7 @@ export class UsersController {
     constructor( private userinstance :UsersService ){}
 
     @Get("/findAllUsers")
+    @UseGuards(new UserGuard())
     findAllUser():string{
         return this.userinstance.findUsers();
     }
