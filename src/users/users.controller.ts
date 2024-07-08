@@ -1,6 +1,7 @@
-import { Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UserGuard } from './users.guard';
+import { User } from './user.entity';
 
 @Controller('users')
 export class UsersController {
@@ -13,6 +14,11 @@ export class UsersController {
         return this.userinstance.findUsers();
     }
 
+
+    @Get("/findUserbyName")
+    findUser(@Query('name')name:string):User{
+        return this.userinstance.getUserByName(name)
+    }
 
     @Post("/addUser")
     addUser():string{

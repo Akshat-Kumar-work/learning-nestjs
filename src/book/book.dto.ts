@@ -1,4 +1,4 @@
-//this file contain structure of any data 
+//this file contain structure of outgoing data 
 //dto => data transfer object
 
 // export interface Book  {
